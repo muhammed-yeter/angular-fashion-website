@@ -1,0 +1,48 @@
+<main
+  class="container flex-column align-items-center d-flex justify-content-center mt-5 py-5"
+>
+  <div class="detail-head">
+    <div>
+      <div class="product-detail-img">
+        <img src="{{ product?.image }}" alt="img" />
+      </div>
+    </div>
+    <div class="d-flex flex-column gap-4">
+      <div class="product-details">
+        <h1 class="fw-semibold mb-1">{{ product?.name }}</h1>
+        <div class="mb-3">
+          <span class="badge bg-secondary me-2">{{ product?.category }}</span>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column gap-3 product-details">
+        <h4 class="price">${{ product?.price?.toLocaleString() }}</h4>
+        <input type="number" class="counter" value="1" min="1" />
+        <button class="buyout shadow-none btn-lg">
+          <i class="fa-solid fa-cart-shopping me-2"></i> Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  <section class="comments">
+    <h4 class="fw-semibold mb-4">Yorumlar ({{ commentCount }})</h4>
+    <div class="comments-container" *ngFor="let comment of product?.comments">
+      <div class="comment">
+        <div class="comment-head">
+          <div class="pp-holder">
+            <img src="../images/insta-item5.jpg" alt="" />
+          </div>
+          <div class="d-flex justify-content-between flex-column">
+            <span>{{ comment.commenter_username }}</span>
+            <span class="comment-user-type">{{ comment.commenter_type }}</span>
+          </div>
+        </div>
+        <div class="comment-body"></div>
+        <p>
+          {{ comment.commenter_comment }}
+        </p>
+        <hr />
+      </div>
+    </div>
+  </section>
+</main>

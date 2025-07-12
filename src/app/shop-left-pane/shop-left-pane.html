@@ -1,0 +1,82 @@
+<section class="bg-light p-3 rounded">
+  <h4 class="w-100 text-center py-3">LOGO</h4>
+  <div class="accordion" id="filterAccordion">
+    <!-- Categories -->
+    <div class="accordion-item">
+      <h2 class="accordion-header w-100" id="forCats">
+        <a
+          class="accordion-button w-100 collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#cats"
+          aria-expanded="false"
+          aria-controls="cats"
+        >
+          Categories
+        </a>
+      </h2>
+      <div
+        id="cats"
+        class="accordion-collapse collapse"
+        aria-labelledby="forCats"
+        data-bs-parent="#filterAccordion"
+      >
+        <div
+          class="accordion-body p-2 d-flex flex-column gap-2"
+          *ngFor="let product of filteredCats"
+        >
+          <a
+            [routerLink]="['/shop/categories/' + product.category]"
+            routerLinkActive="router-link-active"
+            class="btn text-start accordion-selector"
+            >{{ product.category }}</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Brands -->
+    <div class="accordion-item">
+      <h2 class="accordion-header w-100" id="forBrands">
+        <a
+          class="accordion-button w-100 collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#brands"
+          aria-expanded="false"
+          aria-controls="brands"
+        >
+          Brands
+        </a>
+      </h2>
+      <div
+        id="brands"
+        class="accordion-collapse collapse"
+        aria-labelledby="forBrands"
+        data-bs-parent="#filterAccordion"
+      >
+        <div
+          class="accordion-body p-2 d-flex flex-column gap-2"
+          *ngFor="let brand of filteredBrands"
+        >
+          <a
+            [routerLink]="['/shop/brands/' + brand.brand]"
+            routerLinkActive="router-link-active"
+            class="btn text-start accordion-selector"
+            >{{ brand.brand }}</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <a
+        class="show-all w-100 collapsed"
+        type="button"
+        aria-expanded="false"
+        [routerLink]="['/shop']"
+        routerLinkActive="router-link-active"
+      >
+        Hepsini Göster
+      </a>
+    </div>
+  </div>
+</section>

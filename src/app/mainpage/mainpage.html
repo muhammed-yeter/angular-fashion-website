@@ -1,0 +1,190 @@
+<main>
+  <div id="hero-carousel" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/video-image.jpg" class="d-block w-100" alt="..." />
+        <div>
+          <div class="hero-content first">
+            <div>
+              <h4>
+                NEW COLLECTION:
+                <h2>THE WIND OF YOUR DREAMS</h2>
+              </h4>
+            </div>
+            <a href="#" class="custom-btn">EXPLORE</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/single-image-2.jpg" class="d-block w-100" alt="..." />
+        <div>
+          <div class="hero-content">
+            <div>
+              <h4>
+                SEASON'S FAVOURITE OUTFIT:
+                <h2>ORANGE CREAM</h2>
+              </h4>
+            </div>
+            <a href="#" class="custom-btn">EXPLORE</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/bg-newsletter.jpg" class="d-block w-100" alt="..." />
+        <div>
+          <div class="hero-content">
+            <div>
+              <h4>
+                NEW COLLECTION:
+                <h2>AUTUMN</h2>
+              </h4>
+            </div>
+            <a href="#" class="custom-btn">EXPLORE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#hero-carousel"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#hero-carousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div
+    class="d-flex flex-column gap-4 align-items-center justify-content-center"
+  >
+    <!-- Highlights -->
+    <section class="highlights">
+      <h2 class="text-center">
+        Choosing a good outfit is an art. Here are the works of art
+      </h2>
+      <div
+        class="d-flex gap-4 flex-wrap align-items-center justify-content-center"
+      >
+        <div class="outfit-card">
+          <img src="images/cat-item2.jpg" alt="outfit_1" />
+        </div>
+        <div class="outfit-card">
+          <img src="images/banner-image-5.jpg" alt="outfit_1" />
+        </div>
+        <div class="outfit-card">
+          <img src="images/post-image3.jpg" alt="outfit_1" />
+        </div>
+      </div>
+    </section>
+    <hr />
+    <!-- Popular Models -->
+    <article
+      class="row align-items-center justify-content-between popular-model"
+    >
+      <div class="col-lg-1 d-none d-lg-block"></div>
+      <div class="col-lg-7 col-12 animator">
+        <p class="popular-model-text mb-5">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+          aspernatur id, possimus distinctio perferendis error expedita
+          delectus, maiores dignissimos rerum fugit exercitationem ex atque
+          dolorem omnis obcaecati quia hic. Minima! Molestias culpa
+          reprehenderit voluptatibus odio cum animi at ducimus accusamus quis
+          mollitia ipsa accusantium veritatis obcaecati ea magnam illum, modi
+          voluptas doloremque fugit laborum, unde incidunt quia numquam
+          dignissimos.
+        </p>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-12 d-flex justify-content-center">
+        <div class="popular-model-img">
+          <img src="images/collection-banner.jpg" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-1 d-none d-lg-block"></div>
+    </article>
+    <hr />
+    <article
+      class="row align-items-center justify-content-between popular-model"
+    >
+      <div class="col-lg-1 d-none d-lg-block"></div>
+      <div class="col-xl-3 col-lg-4 col-12 d-flex justify-content-center">
+        <div class="popular-model-img">
+          <img src="images/banner-image-6.jpg" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7 col-12 animator">
+        <p class="popular-model-text mt-5">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+          aspernatur id, possimus distinctio perferendis error expedita
+          delectus, maiores dignissimos rerum fugit exercitationem ex atque
+          dolorem omnis obcaecati quia hic. Minima! Molestias culpa
+          reprehenderit voluptatibus odio cum animi at ducimus accusamus quis
+          mollitia ipsa accusantium veritatis obcaecati ea magnam illum, modi
+          voluptas doloremque fugit laborum, unde incidunt quia numquam
+          dignissimos.
+        </p>
+      </div>
+      <div class="col-lg-1 d-none d-lg-block"></div>
+    </article>
+    <hr />
+    <!-- Categories -->
+    <section class="highlights">
+      <h2 class="text-center">Start Shopping</h2>
+      <div
+        class="d-flex gap-4 flex-wrap align-items-center justify-content-center"
+      >
+        <a
+          [routerLink]="['/shop/categories/Outfit']"
+          routerLinkActive="router-link-active"
+        >
+          <div class="cat-card">
+            <img src="images/insta-item2.jpg" alt="cat_1" />
+            <h1 class="cat-card-header" style="--cat-card-text: #383f36">
+              Outfits
+            </h1>
+            <div class="d-flex align-items-center justify-content-center">
+              <span style="color: var(--theme-primary-text)">SHOP NOW</span>
+            </div>
+          </div>
+        </a>
+        <a
+          [routerLink]="['/shop/categories/Clothing']"
+          routerLinkActive="router-link-active"
+        >
+          <div class="cat-card">
+            <img src="images/product-item-2.jpg" alt="cat_2" />
+            <h1 class="cat-card-header" style="--cat-card-text: #fff">
+              Clothing
+            </h1>
+            <div class="d-flex align-items-center justify-content-center">
+              <span style="color: var(--theme-primary-text)">SHOP NOW</span>
+            </div>
+          </div>
+        </a>
+        <a
+          [routerLink]="['/shop/categories/Accessories']"
+          routerLinkActive="router-link-active"
+        >
+          <div class="cat-card">
+            <img src="images/cat-sm-item3.jpg" alt="cat_3" />
+            <h1 class="cat-card-header" style="--cat-card-text: #383f36">
+              Accessories
+            </h1>
+            <div class="d-flex align-items-center justify-content-center">
+              <span style="color: var(--theme-primary-text)">SHOP NOW</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+  <hr />
+</main>

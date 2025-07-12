@@ -1,0 +1,26 @@
+<div class="card h-100 shadow-sm product-card">
+  <a [routerLink]="['/product/id/' + id]" routerLinkActive="router-link-active">
+    <div class="product-card-img">
+      <img src="{{ imageURL }}" class="card-img-top" alt="Product Image" />
+    </div>
+    <div class="card-body">
+      <p class="brand">{{ brand }}</p>
+      <h5 class="card-title">{{ name }}</h5>
+
+      <div class="mb-3">
+        <p class="card-text mb-1">Price: ${{ price }}</p>
+        <p class="card-text mb-1">Type: {{ category }}</p>
+        <p class="card-text mb-1" *ngIf="material">Material: {{ material }}</p>
+        <p class="card-text" *ngIf="size">
+          Size:
+          <span *ngFor="let size_item of size; let i = index; let last = last">
+            {{ size_item }}<span *ngIf="!last">, </span>
+          </span>
+        </p>
+      </div>
+      <a class="btn add-to-basket w-100"
+        ><i class="fa-solid fa-cart-shopping me-2"></i> Add to Cart</a
+      >
+    </div>
+  </a>
+</div>

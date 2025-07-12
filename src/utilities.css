@@ -1,0 +1,205 @@
+:root {
+  /* Arka Planlar */
+  --primary-bg: #f7f5f3; /* Marshall siyahı – güçlü ve sofistike */
+  --secondary-bg: #d4d2d2; /* içerik bölümleri için koyu gri ton */
+  --layout: #f7f5f3;
+
+  /* Ürün Kartları */
+  --product-card: #121212; /* ürünleri öne çıkaran sade zemin */
+
+  /* Etkileşim Öğeleri */
+  --interaction-element: #d4af37; /* altın – CTA butonlar için dikkat çekici */
+  --interaction-secondary-element: #bfa76a; /* soft altın – hover efektleri için ideal */
+  --important-text: #ffffff; /* önemli metinler için net beyaz */
+
+  /* Metin Renkleri */
+  --theme-primary-text: #1b1b1b; /* yüksek kontrastlı ana metin */
+  --theme-secondary-text: #313131; /* ikincil metinler için soft gri */
+  --theme-third-text: #555555; /* açıklama metinleri için nötr ton */
+  --sepia-text: #fffaee;
+}
+
+/*------------------------------------------- Utility -------------------------------------------*/
+.gap-xl-5 {
+  gap: 100px !important;
+}
+
+.rounded-sm {
+  border-radius: 5px;
+}
+
+.rounded-md {
+  border-radius: 10px;
+}
+
+.rounded-lg {
+  border-radius: 15px;
+}
+
+/*------------------------------------------ END Utility ----------------------------------------*/
+
+.w-fit-content {
+  width: fit-content;
+}
+
+/*---------------------------------------- END color palette ----------------------------------------*/
+
+/* ANIMATIONS */
+.hover-shadow-resize {
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.hover-shadow-resize:hover {
+  box-shadow: 0 0 10px #00000050;
+  transform: scale(1.07);
+}
+
+.hover-bloom {
+  transition: box-shadow 0.3s;
+}
+
+.hover-bloom:hover {
+  box-shadow: 0 0 10px var(--important-text-variated);
+}
+
+.hover-border {
+  position: relative;
+}
+
+.hover-border::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffbe6e;
+  transition: transform 0.3s ease-out;
+}
+
+.dark-mode .hover-border::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d4913e;
+  transition: transform 0.3s ease-out;
+}
+
+.hover-border:hover::after {
+  transform: scaleX(1);
+}
+
+.image-holder {
+  overflow: hidden;
+}
+
+/* Link element's hover animations */
+.hover-color {
+  transition: color 0.3s;
+}
+
+.hover-color:hover {
+  color: #dfa061 !important;
+}
+
+.custom-btn {
+  text-decoration: none;
+  text-align: center;
+  align-content: center;
+  color: white;
+  background-color: transparent;
+  padding: 10px 15px 10px 15px;
+  border: 1px solid #e9e5db;
+  width: 150px;
+  aspect-ratio: 3;
+  border-radius: 5px;
+  font-size: calc(0.9rem + 0.2vw);
+  transition: backdrop-filter 0.5s, transform 0.3s, box-shadow 0.3s;
+}
+
+.custom-btn:hover {
+  backdrop-filter: sepia(90%);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px #00000050;
+}
+
+.shadow-md {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+.img-thumbnail {
+  min-width: 200px;
+}
+
+.animated-top {
+  animation: anim-top 600ms;
+  animation-delay: var(--delay);
+  position: relative;
+}
+
+@keyframes anim-top {
+  from {
+    top: 50px;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+.animated-top-mini {
+  animation: anim-top-mini 600ms;
+  animation-delay: var(--delay);
+  position: relative;
+}
+
+@keyframes anim-top-mini {
+  from {
+    top: 10px;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+.color-inherit {
+  color: inherit !important;
+}
+
+.mw-50 {
+  max-width: 50%;
+}
+
+@media (min-width: 992px) {
+  .focus-parent:has(.focus-child:hover) .focus-child:not(:hover) {
+    /*
+        "focus-parent:has(.focus-child:hover)" = focus-parent içerisindeki .focus-child'ların herhangi birine hover olmuşsa  
+        ".focus-child:not(:hover)" = hover'lanmamış focus-child elemanları için stil
+    */
+    filter: blur(1px);
+    opacity: 0.5 !important;
+  }
+
+  .focus-child {
+    transition: filter 0.3s, opacity 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+
+  .focus-child:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 25px #aaaaaa25;
+  }
+}
+
+.w-fit-content {
+  width: fit-content !important;
+}
+
+.img-holder {
+  overflow: hidden;
+}

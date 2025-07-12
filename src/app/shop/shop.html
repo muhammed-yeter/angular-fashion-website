@@ -1,0 +1,33 @@
+<main class="container-fluid mt-5 py-5">
+  <div class="w-100 mb-4 position-relative"></div>
+  <div class="row">
+    <!-- Sidebar Filters -->
+    <section
+      class="col-lg-3 col-12 shop-settings bg-light p-3 rounded shadow-sm"
+    >
+      <app-shop-left-pane [productList]="productList"></app-shop-left-pane>
+    </section>
+
+    <!-- Product Cards -->
+    <section class="col-lg-9 col-12">
+      <div class="row g-4 flex-wrap">
+        <!-- Product 1 -->
+        <div
+          class="col-md-4 col-sm-6 product-card"
+          *ngFor="let product of filteredList"
+        >
+          <app-product-card
+            [id]="product.id"
+            [imageURL]="product.image"
+            [name]="product.name"
+            [price]="product.price"
+            [size]="product.size"
+            [category]="product.category"
+            [brand]="product.brand"
+            [material]="product.material"
+          ></app-product-card>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
