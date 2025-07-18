@@ -1,0 +1,129 @@
+/* .basket-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 25px; 
+  margin-bottom: 20px;
+}
+
+.img-holder {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+  .img-holder {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.price {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+*/
+
+.basket-item {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 10px #0000000f;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.basket-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 10px 10px #00000015;
+}
+
+.img-holder {
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 5px #0000001a;
+}
+.img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+@media (max-width: 500px) {
+  .basket-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .img-holder {
+    width: 120px;
+    height: 120px;
+  }
+  .basket {
+    align-items: center !important;
+  }
+}
+
+.price {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.badge {
+  max-width: fit-content;
+}
+
+.basket {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+}
+
+.row {
+  max-width: 100%;
+}
+
+.delete {
+  background-color: transparent;
+  border: 2px solid #e62121;
+  background-color: #e62121;
+  box-shadow: 0 0 5px #000000;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  align-content: center;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: transform 0.3s;
+}
+
+.delete:hover {
+  transform: translateY(-2px);
+}
+
+.count-button {
+  padding: 5px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: #dfdede;
+  align-content: center;
+}
+.count {
+  width: fit-content;
+  height: fit-content;
+}

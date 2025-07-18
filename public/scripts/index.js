@@ -110,10 +110,27 @@ function setAnims() {
     interval: 150,
     viewFactor: 0.2,
   });
+  sr.reveal(".basket-item", {
+    origin: "bottom",
+    distance: "15px",
+    interval: 150,
+    viewFactor: 0.2,
+  });
+  sr.reveal(".total-price", {
+    origin: "bottom",
+    distance: "15px",
+    interval: 150,
+    viewFactor: 0.2,
+  });
+  sr.reveal(".payment", {
+    origin: "bottom",
+    distance: "15px",
+    delay: 200,
+    viewFactor: 0.1,
+  });
 }
 
-window.addEventListener("load", setAnims());
-
+window.addEventListener("load", setAnims())
 navigation.addEventListener("navigate", () => {
   setTimeout(() => {
     setAnims();
@@ -147,5 +164,5 @@ navigation.addEventListener("navigate", () => {
         "#757575"
       );
     }
-  }, 50);
+  }, 150);
 });

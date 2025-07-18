@@ -37,9 +37,15 @@
           <a class="nav-link color-inherit hover-color" href="#">ABOUT US</a>
         </li>
       </ul>
-
       <!-- Arama -->
-      <div class="d-none d-lg-flex align-items-center pb-2 gap-5">
+      <div class="d-none d-lg-flex align-items-center pb-2 gap-5 mt-2">
+        <a
+          class="fw-bold fs-5 hover-color"
+          [routerLink]="['/basket']"
+          routerLinkActive="router-link-active"
+        >
+          <i class="fa-solid fa-cart-shopping fs-6"></i> ({{ basketCount }})
+        </a>
         <div class="navbar-social d-flex gap-3">
           <i class="fa-brands fa-facebook"></i>
           <i class="fa-brands fa-twitter"></i>

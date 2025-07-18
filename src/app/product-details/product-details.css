@@ -1,0 +1,33 @@
+#success {
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.description {
+  max-width: 50%;
+}
+
+.badge {
+  width: fit-content;
+}
+.count-products {
+  width: 20px;
+}
+
+.active {
+  color: #fff !important;
+}
+
+.img-holder {
+  overflow: hidden;
+  width: fit-content;
+}
+
+.product-img-holder {
+  overflow: hidden;
+  max-height: 70vh;
+}
+
+.product-img-holder img {
+  object-fit: cover;
+}

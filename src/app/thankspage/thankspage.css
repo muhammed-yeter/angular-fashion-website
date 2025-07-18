@@ -1,0 +1,21 @@
+.thanks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00000050;
+    width: 60%;
+    height: 50%;
+}
+
+.thanks-container
+{
+    display: flex;
+    width: 98vw;
+    height: 93vh;
+    justify-content: center;
+    align-items: center;
+}

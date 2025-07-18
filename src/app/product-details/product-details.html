@@ -1,4 +1,4 @@
-<main
+<!-- <main
   class="container flex-column align-items-center d-flex justify-content-center mt-5 py-5"
 >
   <div class="detail-head">
@@ -17,10 +17,30 @@
 
       <div class="d-flex flex-column gap-3 product-details">
         <h4 class="price">${{ product?.price?.toLocaleString() }}</h4>
-        <input type="number" class="counter" value="1" min="1" />
-        <button class="buyout shadow-none btn-lg">
+        <div class="d-flex gap-3 mt-4 w-fit-content">
+          <button (click)="increaseCount()">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <span id="productCount" class="fs-5">{{ productCount }}</span>
+          <button (click)="decreaseCount()">
+            <i class="fa-solid fa-subtract"></i>
+          </button>
+        </div>
+        <button
+          class="buyout shadow-none btn-lg"
+          (click)="send_pData_to_service()"
+        >
           <i class="fa-solid fa-cart-shopping me-2"></i> Add to Cart
         </button>
+        <div class="alert-success alert w-fit-content" id="success">
+          Ürün sepete eklendi.
+          <a
+            class="text-decoration-underline color-inherit"
+            [routerLink]="['/basket']"
+            routerLinkActive="router-link-active"
+            >Beni Sepete Götür</a
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -30,7 +50,7 @@
       <div class="comment">
         <div class="comment-head">
           <div class="pp-holder">
-            <img src="../images/insta-item5.jpg" alt="" />
+            <img src="images/insta-item5.jpg" alt="" />
           </div>
           <div class="d-flex justify-content-between flex-column">
             <span>{{ comment.commenter_username }}</span>
@@ -43,6 +63,86 @@
         </p>
         <hr />
       </div>
+    </div>
+  </section>
+</main> 
+ -->
+
+<main class="product-page container mt-5 py-5">
+  <div class="row">
+    <div class="col-lg-6 product-img-holder">
+      <img
+        src="{{ product?.image }}"
+        alt="{{ product?.name }}"
+        class="img-fluid rounded"
+      />
+    </div>
+    <div class="col-lg-6 product-info d-flex flex-column gap-4">
+      <div>
+        <h1 class="fw-semibold m-0">{{ product?.name }}</h1>
+        <span class="fs-5 fw-semibold" style="color: var(--theme-third-text)">{{
+          product?.brand
+        }}</span>
+        <div class="my-3">
+          <span class="badge bg-dark">{{ product?.category }}</span>
+        </div>
+      </div>
+      <h4 class="fw-bold">${{ product?.price?.toLocaleString() }}</h4>
+
+      <div class="d-flex align-items-center gap-3">
+        <button (click)="increaseCount()" class="btn btn-outline-dark">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <span class="fs-5 count-products text-center">{{ productCount }}</span>
+        <button (click)="decreaseCount()" class="btn btn-outline-dark">
+          <i class="fa-solid fa-minus"></i>
+        </button>
+      </div>
+      <div *ngIf="product?.size">
+        <h3>Size</h3>
+        <button
+          *ngFor="let size of product?.size"
+          class="mx-2 btn btn-outline-dark fs-5 fw-bold"
+          (click)="setSelectedSize(size)"
+          [class.active]="selectedSize === size"
+        >
+          {{ size }}
+        </button>
+      </div>
+      <button class="buyout shadow-none" (click)="send_pData_to_service()">
+        <i class="fa-solid fa-cart-shopping me-2"></i> Sepete Ekle
+      </button>
+
+      <div class="alert alert-success mt-3" id="success">
+        Ürün sepete eklendi.
+        <a
+          [routerLink]="['/basket']"
+          class="text-decoration-underline color-inherit"
+          >Sepete Git</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <section class="mt-5">
+    <h5 class="fw-semibold">Yorumlar ({{ commentCount }})</h5>
+    <div
+      *ngFor="let comment of product?.comments"
+      class="comment border rounded p-3 my-2"
+    >
+      <div class="d-flex gap-3 align-items-center">
+        <img
+          src="images/insta-item5.jpg"
+          alt="pp"
+          class="rounded-circle"
+          width="40"
+        />
+        <div>
+          <div class="fw-bold">{{ comment.commenter_username }}</div>
+          <small class="text-muted">{{ comment.commenter_type }}</small>
+        </div>
+      </div>
+      <p class="mt-2">{{ comment.commenter_comment }}</p>
     </div>
   </section>
 </main>

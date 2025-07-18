@@ -35,7 +35,7 @@ export const urunler = [
     category: 'Outfit',
     brand: 'HomeMax',
     price: 150.25,
-    image: '../images/insta-item3.jpg',
+    image: 'images/insta-item3.jpg',
     size: ['S', 'M', 'XL'],
     material: 'Cotton',
     comments: [
@@ -65,7 +65,7 @@ export const urunler = [
     category: 'Clothing',
     brand: 'NeoForm',
     price: 57.1,
-    image: '../images/insta-item5.jpg',
+    image: 'images/insta-item5.jpg',
     size: ['L', 'XL'],
     material: 'Cotton',
     comments: [
@@ -95,8 +95,9 @@ export const urunler = [
     category: 'Clothing',
     brand: 'DS Clothing',
     price: 135.75,
-    image: '../images/insta-item6.jpg',
+    image: 'images/insta-item6.jpg',
     size: ['S', 'M', 'L'],
+    material: 'Cotton',
     comments: [
       {
         commenter_id: 1004,
@@ -124,7 +125,7 @@ export const urunler = [
     category: 'Clothing',
     brand: 'EW',
     price: 252.35,
-    image: '../images/post-image2.jpg',
+    image: 'images/post-image2.jpg',
     size: ['M', 'L', 'XL'],
     material: 'Cotton',
     comments: [
@@ -154,7 +155,7 @@ export const urunler = [
     category: 'Clothing',
     brand: 'CampLite',
     price: 109.8,
-    image: '../images/post-image4.jpg',
+    image: 'images/post-image4.jpg',
     size: ['M', 'L'],
     material: 'Cotton',
     comments: [
@@ -184,7 +185,7 @@ export const urunler = [
     category: 'Accessories',
     brand: 'DeskCraft',
     price: 18.45,
-    image: '../images/post-image6.jpg',
+    image: 'images/post-image6.jpg',
     material: 'Plastic',
     comments: [
       {
@@ -213,7 +214,7 @@ export const urunler = [
     category: 'Clothing',
     brand: 'Zara',
     price: 64.62,
-    image: '../images/post-image7.jpg',
+    image: 'images/post-image7.jpg',
     size: ['S', 'M', 'L'],
     material: 'Linen',
     comments: [
@@ -243,8 +244,9 @@ export const urunler = [
     category: 'Outfit',
     brand: 'Zara',
     price: 340.0,
-    image: '../images/product-item-1.jpg',
+    image: 'images/product-item-1.jpg',
     size: ['M', 'L'],
+    material: 'Cotton',
     comments: [
       {
         commenter_id: 1008,
@@ -272,7 +274,7 @@ export const urunler = [
     category: 'Clothing',
     brand: 'Nike',
     price: 91.25,
-    image: '../images/product-item-3.jpg',
+    image: 'images/product-item-3.jpg',
     size: ['S', 'M', 'L', 'XL'],
     comments: [
       {
@@ -301,8 +303,9 @@ export const urunler = [
     category: 'Clothing',
     brand: 'B&O',
     price: 110.5,
-    image: '../images/product-item-5.jpg',
+    image: 'images/product-item-5.jpg',
     size: ['S', 'M', 'L', 'XL', 'XXL'],
+    material: 'Cotton',
     comments: [
       {
         commenter_id: 1008,
@@ -330,8 +333,9 @@ export const urunler = [
     category: 'Outfit',
     brand: 'B&O',
     price: 200.5,
-    image: '../images/product-item-6.jpg',
+    image: 'images/product-item-6.jpg',
     size: ['L', 'XL'],
+    material: 'Cotton',
     comments: [
       {
         commenter_id: 1008,
@@ -359,8 +363,9 @@ export const urunler = [
     category: 'Clothing',
     brand: 'Mavi',
     price: 180.0,
-    image: '../images/product-item-8.jpg',
+    image: 'images/product-item-8.jpg',
     size: ['S', 'M', 'L'],
+    material: 'Cotton',
     comments: [
       {
         commenter_id: 1008,
@@ -388,8 +393,9 @@ export const urunler = [
     category: 'Clothing',
     brand: 'Yakamoz',
     price: 156.0,
-    image: '../images/product-item-10.jpg',
+    image: 'images/product-item-10.jpg',
     size: ['M', 'L', 'XL'],
+    material: 'Cotton',
     comments: [
       {
         commenter_id: 1008,

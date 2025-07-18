@@ -1,0 +1,95 @@
+<div class="row mt-5 pt-5 p-4 align-items-start">
+  <h1 class="mb-4">Sepetiniz</h1>
+  <!-- Sol taraf: Liste -->
+   <!-- <button class="btn btn-primary"></button> -->
+  <div class="col-12 col-md-7 p-0" *ngIf="basketList && basketList.length > 0">
+    <ul class="list-group list-group-flush p-0" *ngFor="let item of basketList">
+      <li class="list-group-item basket-item position-relative">
+        <div class="img-holder">
+          <img src="{{ item.product?.image }}" alt="" />
+        </div>
+        <div class="basket">
+          <a
+            class="color-inherit"
+            [routerLink]="['/product/id/' + item.product?.id]"
+            routerLinkActive="router-link-active"
+          >
+            <h3 class="m-0 mb-1 p-0">{{ item.product?.name }}</h3></a
+          >
+          <span class="d-block mb-2"
+            >{{ item.product?.brand }} - {{ item.product?.category }}
+          </span>
+          <span class="badge bg-secondary me-2">{{
+            item.product?.category
+          }}</span>
+          <span class="d-block mt-3" *ngIf="item.product?.material"
+            >Material: {{ item.product?.material }}</span
+          >
+          <span class="d-block" *ngIf="item.product?.size"
+            >Size: {{ item.product?.size }}</span
+          >
+          <div class="d-flex align-items-center gap-3 mt-3">
+            <button (click)="increaseCount(item)" class="count-button">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <span class="fs-5 count-products text-center">{{
+              item.count
+            }}</span>
+            <button (click)="decreaseCount(item)" class="count-button">
+              <i class="fa-solid fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <span class="price">${{ item.product?.price }}</span>
+        <button class="delete" (click)="deleteFromBasket(item)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div
+    *ngIf="!basketList || basketList.length === 0"
+    class="d-flex flex-column align-items-center justify-content-center gap-3"
+  >
+    <h2>Sepetiniz Boş</h2>
+    <p>
+      Sepetinize bir şeyler eklemek istiyorsanız, şimdi
+      <a
+        [routerLink]="['/shop']"
+        class="text-decoration-underline fw-semibold"
+        style="color: #dfa061"
+        routerLinkActive="router-link-active"
+        >alışveriş yapın.</a
+      >
+    </p>
+  </div>
+  <!-- Sağ taraf: Sepet özeti -->
+  <div class="col-12 col-md-5" *ngIf="basketList && basketList.length > 0">
+    <div class="card shadow-sm border-0 p-4 rounded-4">
+      <h4 class="mb-4">Sepet Özeti</h4>
+
+      <ul class="list-group list-group-flush mb-3">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center border-0"
+        >
+          <span>Ürün Sayısı:</span>
+          <strong>{{ totalCount }}</strong>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center border-0"
+        >
+          <span>Toplam Fiyat:</span>
+          <strong>{{ totalPrice }}</strong>
+        </li>
+      </ul>
+
+      <button
+        class="buyout w-100"
+        [routerLink]="['/payment']"
+        routerLinkActive="router-link-active"
+      >
+        Ödemeye Geç
+      </button>
+    </div>
+  </div>
+</div>
