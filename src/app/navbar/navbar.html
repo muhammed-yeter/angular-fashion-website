@@ -31,10 +31,15 @@
           >
         </li>
         <li class="nav-item px-2">
-          <a class="nav-link color-inherit hover-color" href="#">CATEGORIES</a>
+          <a class="nav-link color-inherit hover-color" href="#">ABOUT US</a>
         </li>
         <li class="nav-item px-2">
-          <a class="nav-link color-inherit hover-color" href="#">ABOUT US</a>
+          <a
+            class="nav-link color-inherit hover-color"
+            [routerLink]="['/account']"
+            routerLinkActive="router-link-active"
+            >ACCOUNT</a
+          >
         </li>
       </ul>
       <!-- Arama -->
@@ -46,21 +51,6 @@
         >
           <i class="fa-solid fa-cart-shopping fs-6"></i> ({{ basketCount }})
         </a>
-        <div class="navbar-social d-flex gap-3">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-linkedin"></i>
-          <i class="fa-brands fa-behance"></i>
-        </div>
-      </div>
-
-      <div class="d-lg-none z-3">
-        <div class="navbar-social d-flex justify-content-center gap-4 mt-3">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-linkedin"></i>
-          <i class="fa-brands fa-behance"></i>
-        </div>
       </div>
     </div>
   </nav>

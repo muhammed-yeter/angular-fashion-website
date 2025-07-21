@@ -5,10 +5,6 @@ window.addEventListener("load", function () {
     navbar.style.setProperty("box-shadow", "0 0 15px #00000050", "important");
     document.documentElement.style.setProperty("--searchbar-text", "#242612");
     document.documentElement.style.setProperty("--navbar-text", "#080a0c");
-    document.documentElement.style.setProperty(
-        "--navbar-social-text",
-        "#757575"
-    );
 })
 
 AOS.init({

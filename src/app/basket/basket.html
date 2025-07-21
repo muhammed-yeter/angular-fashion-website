@@ -1,20 +1,21 @@
 <div class="row mt-5 pt-5 p-4 align-items-start">
   <h1 class="mb-4">Sepetiniz</h1>
   <!-- Sol taraf: Liste -->
-   <!-- <button class="btn btn-primary"></button> -->
+  <!-- <button class="btn btn-primary"></button> -->
   <div class="col-12 col-md-7 p-0" *ngIf="basketList && basketList.length > 0">
     <ul class="list-group list-group-flush p-0" *ngFor="let item of basketList">
       <li class="list-group-item basket-item position-relative">
         <div class="img-holder">
-          <img src="{{ item.product?.image }}" alt="" />
+          <img [src]="item.product?.image" alt="" />
         </div>
         <div class="basket">
           <a
-            class="color-inherit"
+            class="color-inherit fs-3"
+            style="max-width: 85%"
             [routerLink]="['/product/id/' + item.product?.id]"
             routerLinkActive="router-link-active"
           >
-            <h3 class="m-0 mb-1 p-0">{{ item.product?.name }}</h3></a
+            {{ item.product?.name }}</a
           >
           <span class="d-block mb-2"
             >{{ item.product?.brand }} - {{ item.product?.category }}
@@ -64,7 +65,13 @@
     </p>
   </div>
   <!-- Sağ taraf: Sepet özeti -->
-  <div class="col-12 col-md-5" *ngIf="basketList && basketList.length > 0">
+  <div
+    class="col-12 col-md-5 position-relative"
+    *ngIf="basketList && basketList.length > 0"
+  >
+    <button class="clear-basket" (click)="clearBasket()">
+      Sepeti Temizle
+    </button>
     <div class="card shadow-sm border-0 p-4 rounded-4">
       <h4 class="mb-4">Sepet Özeti</h4>
 

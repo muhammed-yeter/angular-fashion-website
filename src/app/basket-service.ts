@@ -13,8 +13,8 @@ export class BasketItem {
 })
 export class BasketService {
   // Servis oluşturulduğunda localStorage'dan sepeti yüklemeye çalışır
-  private productMessage = new BehaviorSubject<number>(0);
-  currentMessage = this.productMessage.asObservable();
+  private basketMessage = new BehaviorSubject<number>(0);
+  currentBasketCount = this.basketMessage.asObservable();
 
   constructor() {
     try {
@@ -29,7 +29,7 @@ export class BasketService {
             (total, item) => total + (item.price ?? 0) * (item.count ?? 1),
             0
           );
-          this.getTotalProducts()
+          this.getTotalProducts();
         }
       }
     } catch (e) {
@@ -37,8 +37,8 @@ export class BasketService {
     }
   }
 
-  changeMessage(productCount: number) {
-    this.productMessage.next(productCount)
+  UpdateBasketCount(productCount: number) {
+    this.basketMessage.next(productCount);
   }
 
   finalPrice: number = 0; // Toplam fiyat
@@ -61,10 +61,7 @@ export class BasketService {
         JSON.stringify(item.product?.size) === JSON.stringify(product.size)
     );
 
-    console.log("Clone: ", cloneProduct?.product)
-    console.log("Fetched: ", product)
     if (cloneProduct) {
-      console.log("aynı")
       /* Eğer varsa, ürünün miktarını artırır
       (cloneProduct.count ?? 0) + count demek, cloneProduct'de ne kadar varsa üzerine ekle, bişey yoksa 0 al ve count kadar ekle demektir */
       cloneProduct.count = (cloneProduct.count ?? 0) + count;
@@ -74,7 +71,7 @@ export class BasketService {
 
     this.finalPrice += price * count;
     this.finalPrice = this.filterNumbers(this.finalPrice); // en fazla 2 basamak olacak şekilde
-    this.getTotalProducts()
+    this.getTotalProducts();
     this.saveBasket();
     /*
     string'e çevirme kısmı 
@@ -91,6 +88,7 @@ export class BasketService {
     this.basket = [];
     this.finalPrice = 0;
     localStorage.removeItem('basket');
+    this.UpdateBasketCount(this.basket.length);
   }
 
   updateProductCount(item: BasketItem, value: number) {
@@ -109,7 +107,6 @@ export class BasketService {
         totalPrice += elementTotal;
       }
     });
-    console.log('getTotal : ', this.filterNumbers(totalPrice));
     return of(this.filterNumbers(totalPrice));
   }
 
@@ -121,8 +118,7 @@ export class BasketService {
         totalProduct += elementTotal;
       }
     });
-    console.log('getTotal : ', totalProduct);
-    this.changeMessage(totalProduct)
+    this.UpdateBasketCount(totalProduct);
     return of(totalProduct);
   }
 

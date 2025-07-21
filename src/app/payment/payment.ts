@@ -3,6 +3,9 @@ import { BasketService } from '../basket-service';
 import { FormsModule } from '@angular/forms';
 import Cleave from 'cleave.js';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { PaymentItem } from '../basketitem-model';
+import { OrderService } from '../order-service';
 @Component({
   selector: 'app-payment',
   imports: [FormsModule, CommonModule],
@@ -12,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class Payment {
   // VIEWCHILD
   // - ViewChild('expireInput') expireInput kısmına seçim yapacağımız elementin adını yazıyoruz.
-  // - ad belirlemek için attribute eklenen kısma diyez (#) ekleyip adı yazıyoruz (bu elementin cardInput'muş) (bu seçimi viewchild yapar)
+  // - ad belirlemek için attribute eklenen kısma diyez (#) ekleyip adı yazıyoruz
   // - ViewChild ngAfterViewInit ile çalışır çünkü componentin view’ı çizildikten sonra erişilebilir olur
 
   //ElementRef
@@ -34,7 +37,11 @@ export class Payment {
     });
   }
 
-  constructor(private basketService: BasketService) {}
+  constructor(
+    private basketService: BasketService,
+    private router: Router,
+    private orderService: OrderService
+  ) {}
   price: number = 0;
 
   pay_method: string = 'visa';
@@ -44,7 +51,7 @@ export class Payment {
   ccv!: number;
   address!: string;
 
-  buyout_data: string[] = [];
+  buyout_data: PaymentItem[] = [];
   ngOnInit() {
     this.basketService
       .getTotalPrice()
@@ -62,13 +69,20 @@ export class Payment {
       this.ccv &&
       this.address
     ) {
-      this.buyout_data.push(this.pay_method);
-      this.buyout_data.push(this.full_name);
-      this.buyout_data.push(this.expire_date);
-      this.buyout_data.push(this.card_number.toString());
-      this.buyout_data.push(this.ccv.toString());
-      this.buyout_data.push(this.address);
-      console.log(this.buyout_data);
+      const buyoutItem: PaymentItem = {
+        id: crypto.randomUUID(),
+        pay_method: this.pay_method,
+        address: this.address,
+        card_number: this.card_number,
+        ccv: this.ccv,
+        expire_date: this.expire_date.toString(),
+        full_name: this.full_name,
+      };
+      this.orderService.addOrder(buyoutItem).subscribe((result) => {
+        console.log(result);
+        this.basketService.clearBasket();
+        this.router.navigate([`/thanks`]);
+      });
     } else {
       this.displayError();
     }
@@ -76,10 +90,14 @@ export class Payment {
   displayError() {
     const displayMessage = document.getElementById('alert');
     if (displayMessage) {
+      displayMessage.style.display = 'block';
       displayMessage.style.opacity = '1';
       setTimeout(function () {
         displayMessage.style.opacity = '0';
       }, 2000);
+      setTimeout(() => {
+        displayMessage.style.display = 'none';
+      }, 2100);
     }
   }
 

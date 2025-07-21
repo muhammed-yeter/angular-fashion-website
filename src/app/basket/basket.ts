@@ -58,4 +58,8 @@ export class Basket {
     this.basketService.deleteProduct(item);
     this.assignSummary();
   }
+  clearBasket() {
+    this.basketService.clearBasket();
+    this.basketList = [];
+  }
 }

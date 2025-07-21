@@ -8,8 +8,6 @@
   --layout: #f7f5f3;
   --navbar-text: #f7f5f3;
   --searchbar-text: #dbd9d7;
-  --navbar-social-text: #dadada;
-
   /* Ürün Kartları */
   --product-card: #121212;
   /* ürünleri öne çıkaran sade zemin */
@@ -116,41 +114,6 @@ header {
 
 #search-bar::-ms-input-placeholder {
   color: var(--theme-third-text);
-}
-
-.fa-search {
-  color: var(--theme-primary-text);
-}
-
-.navbar-social {
-  display: flex;
-  align-items: center;
-  color: var(--navbar-social-text) !important;
-  gap: 20px;
-}
-
-.navbar-social i {
-  padding: 5px 5px 5px 0;
-  font-size: 17px;
-  transition: color 0.3s;
-  background-color: transparent;
-}
-
-.navbar-social i:hover {
-  color: var(--interaction-element);
-}
-
-/* Arama kutusu stili */
-.input-group .form-control {
-  border: 0;
-  box-shadow: none;
-  padding-left: 0.5rem;
-}
-
-.input-group-text {
-  background: transparent;
-  border: 0;
-  padding-right: 0;
 }
 
 /* İkonlar */

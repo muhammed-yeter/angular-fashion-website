@@ -16,11 +16,11 @@ export class ProductDetails {
     private productService: ProductService,
     private route: ActivatedRoute, //rotayı alır
     private basketService: BasketService //rotayı alır
-  ) { }
+  ) {}
   commentCount: number = 0;
   product: Product | undefined;
   productCount: number = 1;
-  selectedSize: string = '';
+  selectedSize?: string = '';
   ngOnInit() {
     this.getProductDetails();
   }
@@ -32,8 +32,8 @@ export class ProductDetails {
         .getProductById(parseInt(id))
         .subscribe((product) => (this.product = product));
     }
-
-    this.product?.comments.forEach((element) => {
+    if (this.product?.size) this.selectedSize = this.product?.size[0];
+    this.product?.comments.forEach(() => {
       this.commentCount += 1;
     });
   }
@@ -70,10 +70,14 @@ export class ProductDetails {
   displaySuccess() {
     const displayMessage = document.getElementById('success');
     if (displayMessage) {
+      displayMessage.style.display = 'block';
       displayMessage.style.opacity = '1';
       setTimeout(function () {
         displayMessage.style.opacity = '0';
       }, 2000);
+      setTimeout(() => {
+        displayMessage.style.display = 'none';
+      }, 2100);
     }
   }
 

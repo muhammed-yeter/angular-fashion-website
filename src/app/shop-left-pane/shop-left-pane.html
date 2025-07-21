@@ -22,13 +22,13 @@
         data-bs-parent="#filterAccordion"
       >
         <div
-          class="accordion-body p-2 d-flex flex-column gap-2"
+          class="accordion-body p-0 d-flex flex-column gap-2"
           *ngFor="let product of filteredCats"
         >
           <a
             [routerLink]="['/shop/categories/' + product.category]"
             routerLinkActive="router-link-active"
-            class="btn text-start accordion-selector"
+            class="btn py-2 text-start accordion-selector"
             >{{ product.category }}</a
           >
         </div>
@@ -55,13 +55,13 @@
         data-bs-parent="#filterAccordion"
       >
         <div
-          class="accordion-body p-2 d-flex flex-column gap-2"
+          class="accordion-body p-0 d-flex flex-column gap-2"
           *ngFor="let brand of filteredBrands"
         >
           <a
             [routerLink]="['/shop/brands/' + brand.brand]"
             routerLinkActive="router-link-active"
-            class="btn text-start accordion-selector"
+            class="btn py-2 text-start accordion-selector"
             >{{ brand.brand }}</a
           >
         </div>

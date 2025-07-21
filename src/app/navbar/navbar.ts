@@ -13,6 +13,6 @@ export class Navbar {
 
   basketCount: number = 0;
   ngOnInit() {
-    this.basketService.currentMessage.subscribe((result) => this.basketCount = result)
+    this.basketService.currentBasketCount.subscribe((result) => this.basketCount = result)
   }
 }

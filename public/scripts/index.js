@@ -15,19 +15,11 @@ function checkTop() {
       navbar.style.setProperty("box-shadow", "0 0 15px #00000050", "important");
       document.documentElement.style.setProperty("--searchbar-text", "#242612");
       document.documentElement.style.setProperty("--navbar-text", "#080a0c");
-      document.documentElement.style.setProperty(
-        "--navbar-social-text",
-        "#757575"
-      );
     } else {
       document.documentElement.style.setProperty("--navbar-text", "#f7f5f3");
       navbar.style.setProperty("background-color", "transparent");
       navbar.style.setProperty("backdrop-filter", "none");
       document.documentElement.style.setProperty("--searchbar-text", "#dbd9d7");
-      document.documentElement.style.setProperty(
-        "--navbar-social-text",
-        "#dadada"
-      );
       navbar.style.setProperty("box-shadow", "none");
     }
   }
@@ -134,35 +126,20 @@ window.addEventListener("load", setAnims())
 navigation.addEventListener("navigate", () => {
   setTimeout(() => {
     setAnims();
-    const socialLinks = document.querySelectorAll(".navbar-social i");
     currentPath = window.location.pathname;
     if (currentPath === "/home") {
       document.documentElement.style.setProperty("--navbar-text", "#f7f5f3");
       navbar.style.setProperty("background-color", "transparent");
       navbar.style.setProperty("backdrop-filter", "none");
-      socialLinks.forEach((element) => {
-        element.classList.remove("dark-social");
-      });
       document.documentElement.style.setProperty("--searchbar-text", "#dbd9d7");
-      document.documentElement.style.setProperty(
-        "--navbar-social-text",
-        "#dadada"
-      );
       navbar.style.setProperty("box-shadow", "none");
     } else {
       document.documentElement.style.setProperty("--navbar-text", "#080a0c");
       navbar.style.setProperty("background-color", "#f7f5f350");
       navbar.style.setProperty("backdrop-filter", "blur(10px)");
-      socialLinks.forEach((element) => {
-        element.classList.add("dark-social");
-      });
       navbar.style.setProperty("box-shadow", "0 0 15px #00000050", "important");
       document.documentElement.style.setProperty("--searchbar-text", "#242612");
       document.documentElement.style.setProperty("--navbar-text", "#080a0c");
-      document.documentElement.style.setProperty(
-        "--navbar-social-text",
-        "#757575"
-      );
     }
   }, 150);
 });
